@@ -1,0 +1,39 @@
+IO Library
+==========
+- Server: 					Node IO server
+
+- NodeClient: 				This uses node components.
+
+- WebClient: 				This uses web browser components. 
+							This may be browserified with the client API.
+
+
+Structure
+=========
+- lib						The source files
+
+- config 					Default configurations for client and server. 
+							Few configurations may be changed at runtime.
+							Please see the client and serve examples.
+
+- support/example 			Examples to configure and run the client and server
+
+- support/wiki				Structure of client & server
+
+
+Dependencies
+============
+- Server 
+	- express
+	- sodium
+	- websocket				Web Socket
+	- ws					Web Socket
+
+- Node Client
+	- sodium
+	- websocket				Web Socket
+	- ws					Web Socket
+	- xhr2 					Node long poll
+
+- Web Client
+	- tweetnacl
