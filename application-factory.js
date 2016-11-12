@@ -1,46 +1,47 @@
 /*
  * @copyright unseen, ehf
  */
+var Client = require('./lib/api/client'),
+	ClientIO = require('./lib/io/index').BrowserClient(),
+	ClientAPI = require('./lib/api/index');
 
 'option strict';
 
 module.exports = ApplicationFactory;
 
-ApplicationFactory() {}
+function ApplicationFactory() {}
 
-ApplicationFactory.Client = {
-	Enum: ClientIO.Enum,
+ApplicationFactory.Factory = Factory;
 
-	app: function(config) {
-		var Client = require('./lib/api/client'),
-			ClientIO = require('./lib/io/index').WebClient(),
-			ClientAPI = require('./lib/api/index');
-			
-		var client = new Client(config, ClientIO, ClientAPI),
-			application = client.API;
+function Factory() {}
 
-		application.Enum = ClientIO.Enum;
-		application.config = client.config;
+Factory.Enum = ClientIO.Enum;
 
-		application.start = function(callback) {
-			client.start(callback);
-		};
+Factory.app = function(config) {
+	var client = new Client(config, ClientIO, ClientAPI),
+		application = client.API;
 
-		application.ready = function() {
-			return application.pipe.ready();
-		};
+	application.Enum = ClientIO.Enum;
+	application.config = client.config;
 
-		application.info = function() {
-			if (application.config.mode === 'DEV') {
-				console.log('/********************************************************************/');
-				console.log('Version: ', application.version);
-				console.log('SessionId: ', application.pipe.sessionId);
-				console.log('Config:', application.config);
-				console.log('Enum:', application.Enum);
-				console.log('/********************************************************************/');
-			}
-		};
+	application.start = function(callback) {
+		client.start(callback);
+	};
 
-		return application;
-	}
+	application.ready = function() {
+		return application.pipe.ready();
+	};
+
+	application.info = function() {
+		if (application.config.mode === 'DEV') {
+			console.log('/********************************************************************/');
+			console.log('Version: ', application.version);
+			console.log('SessionId: ', application.pipe.sessionId);
+			console.log('Config:', application.config);
+			console.log('Enum:', application.Enum);
+			console.log('/********************************************************************/');
+		}
+	};
+
+	return application;
 };

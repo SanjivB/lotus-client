@@ -1,0 +1,19 @@
+{
+  "name": "lotus-client",
+  "version": "2.0.0",
+  "description": "Lotus Client",
+  "main": "application-factory.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanjivb/lotus-client"
+  },
+  "author": "sanjiv.bhalla@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanjivb/lotus-client/issues"
+  },
+  "homepage": "https://github.com/sanjivb/lotus-client"
+}
