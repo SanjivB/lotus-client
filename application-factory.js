@@ -32,6 +32,12 @@ Factory.app = function(config) {
 		return application.pipe.ready();
 	};
 
+	application.log = function(key, error, result, payload, roundTripTime, serverLatency) {
+		if (application.config.mode == application.Enum.Mode.DEV) {
+			console.log(key, error, result, payload, roundTripTime, serverLatency);
+		}
+	};
+
 	application.info = function() {
 		if (application.config.mode === 'DEV') {
 			console.log('/********************************************************************/');
