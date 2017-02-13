@@ -32,6 +32,10 @@ Factory.app = function(config) {
 		return application.pipe.ready();
 	};
 
+	application.hasSession = function() {
+		return application.pipe.hasSession();
+	};
+
 	application.log = function(key, error, result, payload, roundTripTime, serverLatency) {
 		if (application.config.mode == application.Enum.Mode.DEV) {
 			console.log(key, error, result, payload, roundTripTime, serverLatency);
