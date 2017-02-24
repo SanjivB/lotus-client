@@ -32,6 +32,10 @@ Factory.app = function(config) {
 		return application.pipe.ready();
 	};
 
+	application.paused = function() {
+		return application.pipe.paused();
+	};
+
 	application.pause = function() {
 		return application.pipe.pause();
 	};
