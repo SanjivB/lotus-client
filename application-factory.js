@@ -32,6 +32,14 @@ Factory.app = function(config) {
 		return application.pipe.ready();
 	};
 
+	application.pause = function() {
+		return application.pipe.pause();
+	};
+
+	application.resume = function() {
+		return application.pipe.resume();
+	};
+
 	application.hasSession = function() {
 		return application.pipe.hasSession();
 	};
